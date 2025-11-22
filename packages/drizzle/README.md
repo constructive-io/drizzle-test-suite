@@ -1,39 +1,65 @@
-# drizzle
+# pgsql-test + Drizzle Integration
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/launchql/launchql/refs/heads/main/assets/outline-logo.svg" width="250"><br />
-    undefined
+    Drizzle ORM with pgsql-test
 </p>
 
-## install
+This package demonstrates how to integrate [Drizzle ORM](https://orm.drizzle.team/) with [pgsql-test](https://www.npmjs.com/package/pgsql-test) for fast, isolated PostgreSQL testing.
 
-```sh
-npm install drizzle
+## Overview
+
+`pgsql-test` provides isolated PostgreSQL databases for testing with transaction-based cleanup. By combining it with Drizzle, you get:
+
+- Fast test execution with transaction-based isolation
+- Proper cleanup between tests
+- Full Drizzle ORM capabilities in your tests
+- Type-safe database queries
+
+## Example
+
+See `__tests__/basic.test.ts` for a complete example. The key pattern is:
+
+```typescript
+import { drizzle } from 'drizzle-orm/node-postgres';
+import { getConnections, PgTestClient } from 'pgsql-test';
+
+let db: PgTestClient;
+let pg: PgTestClient;
+let teardown: () => Promise<void>;
+
+beforeAll(async () => {
+  ({ pg, db, teardown } = await getConnections());
+});
+
+afterAll(async () => {
+  await teardown();
+});
+
+beforeEach(async () => {
+  await db.beforeEach();
+});
+
+afterEach(async () => {
+  await db.afterEach();
+});
+
+describe('your tests', () => {
+  it('should work', async () => {
+    const drizzleDb = drizzle(db);
+    const result = await drizzleDb.execute('select 1 as num');
+    expect(result.rows[0].num).toBe(1);
+  });
+});
 ```
-## Table of contents
 
-- [drizzle](#drizzle)
-  - [Install](#install)
-  - [Table of contents](#table-of-contents)
-- [Developing](#developing)
-- [Credits](#credits)
 
-## Developing
-
-When first cloning the repo:
+## Running Tests
 
 ```sh
-pnpm install
-# build the prod packages. When devs would like to navigate to the source code, this will only navigate from references to their definitions (.d.ts files) between packages.
-pnpm run build
-```
-
-Or if you want to make your dev process smoother, you can run:
-
-```sh
-pnpm install
-# build the dev packages with .map files, this enables navigation from references to their source code between packages.
-pnpm run build:dev
+pnpm test
+# or
+pnpm test:watch
 ```
 
 ## Credits
