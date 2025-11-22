@@ -17,7 +17,7 @@ The integration is straightforward - `pgsql-test` provides the database connecti
 
 ```typescript
 import { drizzle } from 'drizzle-orm/node-postgres';
-import { getConnections, PgTestClient } from 'pgsql-test';
+import { getConnections, PgTestClient } from 'drizzle-orm-test';
 
 let db: PgTestClient;
 let pg: PgTestClient;
@@ -40,11 +40,29 @@ afterEach(async () => {
 });
 
 describe('your tests', () => {
-  it('should work', async () => {
-    const drizzleDb = drizzle(db);
+  it('should work with standard Drizzle pattern', async () => {
+    const drizzleDb = drizzle(db.client);
     const result = await drizzleDb.execute('select 1 as num');
     expect(result.rows[0].num).toBe(1);
   });
+});
+```
+
+## RLS Testing
+
+Test Row Level Security with context management:
+
+```typescript
+it('user should only see their own rows', async () => {
+  db.setContext({
+    role: 'authenticated',
+    'jwt.claims.user_id': '1'
+  });
+
+  const drizzleDb = drizzle(db.client);
+  const rows = await drizzleDb.select().from(users);
+
+  expect(rows.every(r => r.userId === '1')).toBe(true);
 });
 ```
 
