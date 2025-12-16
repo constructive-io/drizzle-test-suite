@@ -11,9 +11,6 @@
   "publishConfig": {
     "access": "restricted"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "lint": "pnpm -r run lint",
     "deps": "pnpm up -r -i -L"
