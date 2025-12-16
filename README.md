@@ -5,7 +5,14 @@
     drizzle-orm-test demo
 </p>
 
-This demo shows how to use `drizzle-orm-test` for fast, isolated PostgreSQL testing with [Drizzle ORM](https://orm.drizzle.team/). The package is powered by [drizzle-orm-test](https://www.npmjs.com/package/drizzle-orm-test).
+<p align="center" width="100%">
+  <a href="https://github.com/constructive-io/drizzle-test-suite/actions/workflows/ci.yml">
+    <img height="20" src="https://github.com/constructive-io/drizzle-test-suite/actions/workflows/ci.yml/badge.svg" />
+  </a>
+   <a href="https://github.com/constructive-io/drizzle-test-suite/blob/main/LICENSE"><img height="20" src="https://img.shields.io/badge/license-MIT-blue.svg"/></a>
+</p>
+
+This demo shows how to use `drizzle-orm-test` for fast, isolated PostgreSQL testing with [Drizzle ORM](https://orm.drizzle.team/). The package is powered by [drizzle-orm-test](https://www.npmjs.com/package/drizzle-orm-test), a Drizzle-optimized version of [`pgsql-test`](https://www.npmjs.com/package/pgsql-test) for instant, isolated Postgres test databases with automatic rollbacks and Drizzle defaults.
 
 ## What is drizzle-orm-test?
 

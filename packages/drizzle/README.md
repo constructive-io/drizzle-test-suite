@@ -2,8 +2,15 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/constructive-io/constructive/refs/heads/main/assets/outline-logo.svg" width="250"><br />
-    drizzle-orm-test
 </p>
+
+<p align="center" width="100%">
+  <a href="https://github.com/constructive-io/drizzle-test-suite/actions/workflows/ci.yml">
+    <img height="20" src="https://github.com/constructive-io/drizzle-test-suite/actions/workflows/ci.yml/badge.svg" />
+  </a>
+   <a href="https://github.com/constructive-io/drizzle-test-suite/blob/main/LICENSE"><img height="20" src="https://img.shields.io/badge/license-MIT-blue.svg"/></a>
+</p>
+
 
 A testing utility for [Drizzle ORM](https://orm.drizzle.team/) that provides fast, isolated PostgreSQL testing. Powered by [drizzle-orm-test](https://www.npmjs.com/package/drizzle-orm-test).
 
