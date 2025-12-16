@@ -1,13 +1,13 @@
 {
   "name": "drizzle-demo",
   "version": "0.0.1",
-  "author": "Dan Lynch <pyramation@gmail.com>",
+  "author": "Constructive <developers@constructive.io>",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/launchql/drizzle-pgsql-test"
+    "url": "https://github.com/constructive-io/drizzle-test-suite"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "publishConfig": {
     "access": "restricted"
   },
@@ -33,10 +33,5 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "graphql": "14.7.0"
-    }
   }
 }
