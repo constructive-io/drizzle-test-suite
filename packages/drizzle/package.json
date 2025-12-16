@@ -1,20 +1,20 @@
 {
-  "name": "undefined",
+  "name": "@pgpm/drizzle",
   "version": "0.0.1",
-  "author": "Dan Lynch <pyramation@gmail.com>",
-  "description": "undefined",
-  "homepage": "https://github.com/undefined/undefined",
-  "license": "SEE LICENSE IN LICENSE",
+  "author": "Constructive <developers@constructive.io>",
+  "description": "Drizzle ORM testing utility",
+  "homepage": "https://github.com/constructive-io/drizzle-test-suite",
+  "license": "MIT",
   "publishConfig": {
-    "access": "undefined",
+    "access": "public",
     "directory": "dist"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/undefined/undefined"
+    "url": "https://github.com/constructive-io/drizzle-test-suite"
   },
   "bugs": {
-    "url": "https://github.com/undefined/undefined/issues"
+    "url": "https://github.com/constructive-io/drizzle-test-suite/issues"
   },
   "scripts": {
     "lint": "eslint . --fix",

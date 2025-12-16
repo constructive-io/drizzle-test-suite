@@ -1,5 +1,5 @@
 -- Deploy: rls_test
--- made with <3 @ launchql.com
+-- made with <3 @ constructive.io
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
