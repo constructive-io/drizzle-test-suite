@@ -24,7 +24,7 @@
   "keywords": [],
   "devDependencies": {
     "drizzle-kit": "^0.31.8",
-    "drizzle-orm-test": "^0.3.6"
+    "drizzle-orm-test": "^0.3.20"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.1"
