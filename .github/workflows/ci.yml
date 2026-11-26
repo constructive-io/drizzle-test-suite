@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: pyramation/node-sqitch:20.12.0
+    container: node:22.23.5-bookworm
     continue-on-error: true
     strategy:
       fail-fast: false
@@ -68,6 +68,11 @@ jobs:
         with:
           node-version: '22'
           cache: 'pnpm'
+
+      - name: Install database and native build tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends sqitch postgresql-client libdbd-pg-perl python3-dev
 
       - name: Install
         run: pnpm install
